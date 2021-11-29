@@ -20,12 +20,13 @@ function Drag() {
     {
       // onHover: ({ active, event }) => console.log('hover', event, active),
       // onMove: ({ event }) => console.log('move', event),
-      onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
+      onDragEnd: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel()
         setValues({ imageLeft: x, imageTop: y, ...values })
         // api.start({ x, y })
       },
-      onPinch: ({ origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
+      onPinchEnd: ({ dragging, cancel, origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
+        if (dragging) return cancel()
         if (first) {
           const rect = ref.current
           const x = rect.x()
