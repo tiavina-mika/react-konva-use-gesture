@@ -1,0 +1,27 @@
+{
+  "name": "react-konva-gesture-drag-and-drop",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://codesandbox.io/s/new",
+  "main": "src/index.js",
+  "dependencies": {
+    "@use-gesture/react": "10.1.6",
+    "konva": "3.2.4",
+    "lodash-es": "4.17.11",
+    "lodash-move": "1.1.1",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2",
+    "react-konva": "16.8.6",
+    "react-scripts": "2.0.3",
+    "react-spring": "7.2.7-beta.1",
+    "react-with-gesture": "4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
