@@ -35,7 +35,8 @@ function Drag() {
         setValues({ ...values, imageLeft: x, imageTop: y })
         // api.start({ x, y })
       },
-      onPinch: ({ origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
+      onPinch: ({ dragging, cancel, origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
+        if (dragging) return cancel()
         if (first) {
           const rect = ref.current
           const x = rect.x()
