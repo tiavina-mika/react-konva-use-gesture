@@ -11,7 +11,8 @@ function Drag() {
     imageLeft: 0,
     imageTop: 0,
     imageWidth: 100,
-    imageHeight: 100
+    imageHeight: 100,
+    rotation: 0
   })
   const ref = React.useRef(null)
 
@@ -69,8 +70,9 @@ function Drag() {
             // }}
             x={values.imageLeft}
             y={values.imageTop}
-            width={100}
-            height={100}
+            width={values.imageWidth}
+            height={values.imageHeight}
+            rotation={values.rotation}
             // radius={100}
             fill="red"
           />
