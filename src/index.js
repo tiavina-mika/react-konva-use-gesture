@@ -40,26 +40,14 @@ function Drag() {
 
         const x = memo[0] - ms * memo[2]
         const y = memo[1] - ms * memo[3]
-        // console.log('s', s)
-
-        const imageWidth = values.imageWidth * s
-        const imageHeight = values.imageHeight * s
-        // const newValues = {
-        //   ...values,
-        //   imageLeft: x,
-        //   imageTop: y,
-        //   imageWidth,
-        //   imageHeight
-        //   // rotation: a
-        // }
+        console.log('s', s)
 
         setValues({
           ...values,
           imageLeft: x,
           imageTop: y,
-          imageWidth,
-          imageHeight
-          // rotation: a
+          imageWidth: values.imageWidth * s,
+          imageHeight: values.imageHeight * s
         })
 
         return memo
