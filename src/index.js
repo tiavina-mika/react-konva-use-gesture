@@ -37,7 +37,7 @@ function Drag() {
         // api.start({ x, y })
       },
       onPinch: ({ dragging, cancel, origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
-        if (dragging) return cancel()
+        // if (dragging) return cancel()
         if (first) {
           const rect = ref.current
           const x = rect.x()
@@ -67,7 +67,7 @@ function Drag() {
     {
       target: ref,
       drag: { from: () => [values.imageLeft, values.imageTop] },
-      pinch: { scaleBounds: { min: 0.5, max: 2 }, rubberband: true }
+      pinch: { scaleBounds: { min: 1, max: 2 }, rubberband: true }
     }
   )
   return (
