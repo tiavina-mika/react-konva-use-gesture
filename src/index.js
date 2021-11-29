@@ -31,7 +31,6 @@ function Drag() {
           const x = rect.x()
           const y = rect.y()
           const width = rect.width()
-          console.log('width', width)
           const height = rect.height()
           // const { width, height, x, y } = ref.current.getBoundingClientRect()
           const tx = ox - (x + width / 2)
@@ -41,15 +40,20 @@ function Drag() {
 
         const x = memo[0] - ms * memo[2]
         const y = memo[1] - ms * memo[3]
-        console.log('s', s)
+        // console.log('s', s)
 
-        setValues({
+        const imageWidth = values.imageWidth * s
+        const imageHeight = values.imageHeight * s
+        const newValues = {
           ...values,
-          // imageLeft: x,
-          // imageTop: y,
-          imageWidth: values.imageWidth * s,
-          imageHeight: values.imageHeight * s
-        })
+          imageLeft: x,
+          imageTop: y,
+          imageWidth,
+          imageHeight,
+          rotation: a
+        }
+
+        setValues(newValues)
 
         return memo
       }
@@ -57,7 +61,7 @@ function Drag() {
     {
       target: ref,
       drag: { from: () => [values.imageLeft, values.imageTop] },
-      pinch: { scaleBounds: { min: 0.5, max: 2 }, rubberband: true }
+      pinch: { scaleBounds: { min: 0.5, max: 1 }, rubberband: true }
     }
   )
   return (
