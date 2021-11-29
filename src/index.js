@@ -54,13 +54,20 @@ function Drag() {
         const y = memo[1] - ms * memo[3]
         console.log('zoomed', values.imageWidth * s)
         console.log('width', values.imageWidth)
-        setValues({
-          ...values,
+        // setValues({
+        //   ...values,
+        //   imageLeft: x,
+        //   imageTop: y,
+        //   imageWidth: values.imageWidth * s,
+        //   imageHeight: values.imageHeight * s
+        // })
+        setValues((prev) => ({
+          ...prev,
           imageLeft: x,
           imageTop: y,
-          imageWidth: values.imageWidth * s,
-          imageHeight: values.imageHeight * s
-        })
+          imageWidth: prev.imageWidth * s,
+          imageHeight: prev.imageHeight * s
+        }))
         setZoom(s)
 
         return memo
