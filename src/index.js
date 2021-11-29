@@ -31,7 +31,7 @@ function Drag() {
       // onHover: ({ active, event }) => console.log('hover', event, active),
       // onMove: ({ event }) => console.log('move', event),
       onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
-        if (pinching) return cancel()
+        // if (pinching) return cancel()
         setValues({ imageLeft: x, imageTop: y, ...values })
         // api.start({ x, y })
       }
