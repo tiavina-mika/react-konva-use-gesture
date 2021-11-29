@@ -39,7 +39,12 @@ function Drag() {
 
         const x = memo[0] - ms * memo[2]
         const y = memo[1] - ms * memo[3]
-        setValues({ imageLeft: x, imageTop: y })
+        setValues({
+          imageLeft: x,
+          imageTop: y,
+          imageWidth: values.imageWidth * s,
+          imageHeight: values.imageHeight * s
+        })
 
         return memo
       }
