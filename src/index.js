@@ -22,7 +22,7 @@ function Drag() {
       // onMove: ({ event }) => console.log('move', event),
       onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel()
-        setValues({ imageLeft: x, imageTop: y })
+        setValues({ imageLeft: x, imageTop: y, ...values })
         // api.start({ x, y })
       },
       onPinch: ({ origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
@@ -31,6 +31,7 @@ function Drag() {
           const x = rect.x()
           const y = rect.y()
           const width = rect.width()
+          console.log('width', width)
           const height = rect.height()
           // const { width, height, x, y } = ref.current.getBoundingClientRect()
           const tx = ox - (x + width / 2)
@@ -40,7 +41,10 @@ function Drag() {
 
         const x = memo[0] - ms * memo[2]
         const y = memo[1] - ms * memo[3]
+        console.log('s', s)
+
         setValues({
+          ...values,
           // imageLeft: x,
           // imageTop: y,
           imageWidth: values.imageWidth * s,
