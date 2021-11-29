@@ -93,8 +93,8 @@ function Drag() {
         </Layer>
       </Stage>
       <h1>
-        x: {Math.round(values.imageLeft)}, y: {Math.round(values.imageTop)}
-        width: {Math.round(values.imageWidth)}, height: {Math.round(values.imageHeight)}, zoom: {values.zoom},
+        x: {Math.round(values.imageLeft)}, y: {Math.round(values.imageTop)}, width: {Math.round(values.imageWidth)},
+        height: {Math.round(values.imageHeight)}, zoom: {values.zoom},
       </h1>
     </div>
   )
