@@ -41,8 +41,8 @@ function Drag() {
         const x = memo[0] - ms * memo[2]
         const y = memo[1] - ms * memo[3]
         setValues({
-          imageLeft: x,
-          imageTop: y,
+          // imageLeft: x,
+          // imageTop: y,
           imageWidth: values.imageWidth * s,
           imageHeight: values.imageHeight * s
         })
@@ -58,7 +58,7 @@ function Drag() {
   )
   return (
     <div className="container">
-      <Stage width={window.innerWidth} height={window.innerHeight}>
+      <Stage width={window.innerWidth} height={400}>
         <Layer>
           <Rect
             ref={ref}
@@ -79,7 +79,8 @@ function Drag() {
         </Layer>
       </Stage>
       <h1>
-        x: {values.imageLeft}, y: {values.imageTop}{' '}
+        x: {Math.round(values.imageLeft)}, y: {Math.round(values.imageTop)}, width: {Math.round(values.imageWidth)},
+        height: {Math.round(values.imageHeight)},
       </h1>
     </div>
   )
