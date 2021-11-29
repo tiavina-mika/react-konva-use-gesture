@@ -22,7 +22,7 @@ function Drag() {
       // onMove: ({ event }) => console.log('move', event),
       onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel()
-        setValues({ imageLeft: x, imageTop: y })
+        setValues({ imageLeft: x, imageTop: y, ...values })
         // api.start({ x, y })
       },
       onPinch: ({ origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
