@@ -1,5 +1,5 @@
 import { render } from 'react-dom'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Stage, Layer, Circle, Rect } from 'react-konva'
 import './styles.css'
 import { createUseGesture, dragAction, pinchAction } from '@use-gesture/react'
@@ -15,6 +15,16 @@ function Drag() {
     rotation: 0
   })
   const ref = React.useRef(null)
+
+  useEffect(() => {
+    const handler = (e) => e.preventDefault()
+    document.addEventListener('gesturestart', handler)
+    document.addEventListener('gesturechange', handler)
+    return () => {
+      document.removeEventListener('gesturestart', handler)
+      document.removeEventListener('gesturechange', handler)
+    }
+  }, [])
 
   useGesture(
     {
