@@ -49,8 +49,8 @@ function Drag() {
           imageLeft: x,
           imageTop: y,
           imageWidth,
-          imageHeight,
-          rotation: a
+          imageHeight
+          // rotation: a
         }
 
         setValues(newValues)
