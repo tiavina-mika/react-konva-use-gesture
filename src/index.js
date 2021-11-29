@@ -12,7 +12,8 @@ function Drag() {
     imageTop: 0,
     imageWidth: 100,
     imageHeight: 100,
-    rotation: 0
+    rotation: 0,
+    zoom: 1
   })
   const ref = React.useRef(null)
 
@@ -56,7 +57,8 @@ function Drag() {
           imageLeft: x,
           imageTop: y,
           imageWidth: values.imageWidth * s,
-          imageHeight: values.imageHeight * s
+          imageHeight: values.imageHeight * s,
+          zoom: s
         })
 
         return memo
@@ -92,7 +94,7 @@ function Drag() {
       </Stage>
       <h1>
         x: {Math.round(values.imageLeft)}, y: {Math.round(values.imageTop)}
-        width: {Math.round(values.imageWidth)}, height: {Math.round(values.imageHeight)},
+        width: {Math.round(values.imageWidth)}, height: {Math.round(values.imageHeight)}, zoom: {values.zoom},
       </h1>
     </div>
   )
