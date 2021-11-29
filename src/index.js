@@ -44,16 +44,23 @@ function Drag() {
 
         const imageWidth = values.imageWidth * s
         const imageHeight = values.imageHeight * s
-        const newValues = {
+        // const newValues = {
+        //   ...values,
+        //   imageLeft: x,
+        //   imageTop: y,
+        //   imageWidth,
+        //   imageHeight
+        //   // rotation: a
+        // }
+
+        setValues({
           ...values,
           imageLeft: x,
           imageTop: y,
           imageWidth,
           imageHeight
           // rotation: a
-        }
-
-        setValues(newValues)
+        })
 
         return memo
       }
@@ -61,7 +68,7 @@ function Drag() {
     {
       target: ref,
       drag: { from: () => [values.imageLeft, values.imageTop] },
-      pinch: { scaleBounds: { min: 0.5, max: 1 }, rubberband: true }
+      pinch: { scaleBounds: { min: 0.5, max: 2 }, rubberband: true }
     }
   )
   return (
