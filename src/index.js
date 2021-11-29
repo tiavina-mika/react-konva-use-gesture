@@ -34,35 +34,35 @@ function Drag() {
         if (pinching) return cancel()
         setValues({ imageLeft: x, imageTop: y, ...values })
         // api.start({ x, y })
-      },
-      onPinch: ({ dragging, cancel, origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
-        if (dragging) return cancel()
-        if (first) {
-          const rect = ref.current
-          const x = rect.x()
-          const y = rect.y()
-          const width = rect.width()
-          const height = rect.height()
-          // const { width, height, x, y } = ref.current.getBoundingClientRect()
-          const tx = ox - (x + width / 2)
-          const ty = oy - (y + height / 2)
-          memo = [values.imageLeft, values.imageTop, tx, ty]
-        }
-
-        const x = memo[0] - ms * memo[2]
-        const y = memo[1] - ms * memo[3]
-        console.log('s', s)
-
-        setValues({
-          ...values,
-          imageLeft: x,
-          imageTop: y,
-          imageWidth: values.imageWidth * s,
-          imageHeight: values.imageHeight * s
-        })
-
-        return memo
       }
+      // onPinch: ({ dragging, cancel, origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
+      //   if (dragging) return cancel()
+      //   if (first) {
+      //     const rect = ref.current
+      //     const x = rect.x()
+      //     const y = rect.y()
+      //     const width = rect.width()
+      //     const height = rect.height()
+      //     // const { width, height, x, y } = ref.current.getBoundingClientRect()
+      //     const tx = ox - (x + width / 2)
+      //     const ty = oy - (y + height / 2)
+      //     memo = [values.imageLeft, values.imageTop, tx, ty]
+      //   }
+
+      //   const x = memo[0] - ms * memo[2]
+      //   const y = memo[1] - ms * memo[3]
+      //   console.log('s', s)
+
+      //   setValues({
+      //     ...values,
+      //     imageLeft: x,
+      //     imageTop: y,
+      //     imageWidth: values.imageWidth * s,
+      //     imageHeight: values.imageHeight * s
+      //   })
+
+      //   return memo
+      // }
     },
     {
       target: ref,
