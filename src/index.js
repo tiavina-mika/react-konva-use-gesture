@@ -1,5 +1,5 @@
 import { render } from 'react-dom'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Stage, Layer, Circle, Rect } from 'react-konva'
 import './styles.css'
 import { createUseGesture, dragAction, pinchAction } from '@use-gesture/react'
@@ -16,16 +16,26 @@ function Drag() {
   })
   const ref = React.useRef(null)
 
+  useEffect(() => {
+    const handler = (e) => e.preventDefault()
+    document.addEventListener('gesturestart', handler)
+    document.addEventListener('gesturechange', handler)
+    return () => {
+      document.removeEventListener('gesturestart', handler)
+      document.removeEventListener('gesturechange', handler)
+    }
+  }, [])
+
   useGesture(
     {
       // onHover: ({ active, event }) => console.log('hover', event, active),
       // onMove: ({ event }) => console.log('move', event),
-      onDragEnd: ({ pinching, cancel, offset: [x, y], ...rest }) => {
+      onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel()
         setValues({ imageLeft: x, imageTop: y, ...values })
         // api.start({ x, y })
       },
-      onPinchEnd: ({ dragging, cancel, origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
+      onPinch: ({ dragging, cancel, origin: [ox, oy], first, movement: [ms], offset: [s, a], memo }) => {
         if (dragging) return cancel()
         if (first) {
           const rect = ref.current
